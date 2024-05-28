@@ -34,7 +34,7 @@ shaderLoader.loadMultiple(SHADER_CONTAINER, {
 
 var OBJ_MODELS = {};
 var OBJloader = new THREE.OBJLoader(loadingManager);
-OBJloader.load("models/brain_vertex_low-2.obj", function (model) {
+OBJloader.load("models/brain_vertex_low.obj", function (model) {
   OBJ_MODELS.brain = model.children[0];
 });
 
