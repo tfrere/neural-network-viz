@@ -1,28 +1,24 @@
 // Run --------------------------------------------------------
 
 function update() {
+  updateHelpers();
 
-	updateHelpers();
-
-	if ( !sceneSettings.pause ) {
-
-		var deltaTime = clock.getDelta();
-		neuralNet.update( deltaTime );
-		updateGuiInfo();
-
-	}
-
+  if (!sceneSettings.pause) {
+    var deltaTime = clock.getDelta();
+    neuralNet.update(deltaTime);
+    updateGuiInfo();
+    cameraCtrl.update();
+  }
 }
 
 // ----  draw loop
 function run() {
-
-	requestAnimationFrame( run );
-	renderer.setClearColor( sceneSettings.bgColor, 1 );
-	renderer.clear();
-	update();
-	renderer.render( scene, camera );
-	stats.update();
-	FRAME_COUNT ++;
-
+  requestAnimationFrame(run);
+  renderer.setClearColor(sceneSettings.bgColor, 1);
+  renderer.clear();
+  update();
+  renderer.render(scene, camera);
+  stats.update();
+  console.log(1);
+  FRAME_COUNT++;
 }
