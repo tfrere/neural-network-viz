@@ -286,7 +286,7 @@ function NeuralNetwork() {
     maxAxonDist: 10,
     maxConnectionsPerNeuron: 6,
     signalMinSpeed: 1.75,
-    signalMaxSpeed: 3.25,
+    signalMaxSpeed: 10.25,
     currentMaxSignals: 8000,
     limitSignals: 10000,
   };
@@ -527,7 +527,18 @@ NeuralNetwork.prototype.update = function (deltaTime) {
 
   // reset all neurons and when there is no signal and trigger release signal at random neuron
   if (this.components.allSignals.length === 0) {
+    console.log(1234);
     this.resetAllNeurons();
+    this.releaseSignalAt(
+      this.components.neurons[
+        THREE.Math.randInt(0, this.components.neurons.length)
+      ]
+    );
+    this.releaseSignalAt(
+      this.components.neurons[
+        THREE.Math.randInt(0, this.components.neurons.length)
+      ]
+    );
     this.releaseSignalAt(
       this.components.neurons[
         THREE.Math.randInt(0, this.components.neurons.length)
